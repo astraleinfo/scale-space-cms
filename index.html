@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Scale Space Builders</title>
+  <meta name="description" content="Construction management for Scale Space Builders: projects, site operations, materials, service history, attendance, leave, performance, documents, building agreements, invoices, payments, enquiries and reports.">
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/app.css">
+  <link rel="stylesheet" href="css/modern.css">
+  <link rel="stylesheet" href="css/workflow.css">
+  <link rel="stylesheet" href="css/agreements.css">
+  <script>try { if (localStorage.getItem('ssb-demo-v1-theme') === 'dark') document.documentElement.dataset.theme = 'dark'; } catch (e) {}</script>
+</head>
+<body>
+  <div id="loginRoot" hidden></div>
+
+  <div class="app" id="appRoot" hidden>
+    <aside class="sidebar" aria-label="Main navigation">
+      <a class="brand" href="#/dashboard">
+        <img src="assets/logo.png" alt="">
+        <span><b>Scale Space Builders</b><small>Construction Management</small></span>
+      </a>
+      <nav class="nav" id="nav"></nav>
+      <div class="side-foot" id="sideFoot"></div>
+    </aside>
+    <button type="button" class="side-arrow" id="sideArrow" data-act="toggleSide" aria-controls="nav"></button>
+    <div class="scrim" data-act="toggleNav"></div>
+
+    <div class="main">
+      <header class="topbar">
+        <button class="iconbtn only-mobile" data-act="toggleNav" aria-label="Open navigation">
+          <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+        <div class="search">
+          <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+          <input id="search" type="search" placeholder="Search projects, workers, clients, files" autocomplete="off" aria-label="Search">
+          <kbd>/</kbd>
+          <div class="search-pop" id="searchPop" hidden></div>
+        </div>
+        <div class="top-right">
+          <span class="today" id="todayLbl"></span>
+          <button class="iconbtn bell" id="bellBtn" data-act="bellMenu" aria-haspopup="menu" aria-label="Notifications" title="Notifications"></button>
+          <button class="iconbtn theme-btn" data-act="theme" aria-label="Switch to dark theme" title="Switch to dark theme"></button>
+          <button class="role-pill" id="rolePill" data-act="roleMenu" aria-haspopup="menu" title="Switch demo role"></button>
+        </div>
+      </header>
+      <main class="view" id="view" tabindex="-1"></main>
+    </div>
+  </div>
+
+  <dialog id="modal" class="modal" aria-label="Dialog"></dialog>
+  <dialog id="drawer" class="drawer" aria-label="Details"></dialog>
+  <div id="toasts" class="toasts" popover="manual" aria-live="polite"></div>
+  <div id="tip" class="tip" role="tooltip" hidden></div>
+  <div id="navTip" class="navtip" role="tooltip" hidden></div>
+
+  <script src="js/data.js"></script>
+  <script src="js/data-extra.js"></script>
+  <script src="js/lists.js"></script>
+  <script src="js/core.js"></script>
+  <script src="js/ui-controls.js"></script>
+  <script src="js/workflow.js"></script>
+  <script src="js/maps.js"></script>
+  <script src="js/views-overview.js"></script>
+  <script src="js/views-construction.js"></script>
+  <script src="js/views-site.js"></script>
+  <script src="js/views-floors.js"></script>
+  <script src="js/views-documents.js"></script>
+  <script src="js/views-finance.js"></script>
+  <script src="js/views-business.js"></script>
+  <script src="js/views-users.js"></script>
+  <script src="js/views-compliance.js"></script>
+  <script src="js/views-stoppages.js"></script>
+  <script src="js/views-revisions.js"></script>
+  <script src="js/views-doccontrol.js"></script>
+  <script src="js/views-notes.js"></script>
+  <script src="js/views-team.js"></script>
+  <script src="js/views-salary.js"></script>
+  <script src="js/views-materials.js"></script>
+  <script src="js/views-service.js"></script>
+  <script src="js/views-invoices.js"></script>
+  <script src="js/views-dashboard-extra.js"></script>
+  <script src="js/views-settings.js"></script>
+  <script src="js/views-analytics.js"></script>
+  <script src="js/agreement-logo.js"></script>
+  <script src="js/views-agreements.js"></script>
+  <script src="js/motion.js"></script>
+  <script src="js/breadcrumbs.js"></script>
+  <script>init();</script>
+</body>
+</html>
