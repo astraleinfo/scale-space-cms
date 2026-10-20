@@ -140,7 +140,9 @@
 
 .agr-form { display: grid; gap: 18px; min-width: 0; }
 .agr-fs { border: 0; margin: 0; padding: 0; min-width: 0; display: grid; gap: 18px; }
-.agr-fs[disabled] .agr-grid-acts, .agr-fs[disabled] .agr-gr .iconbtn { display: none; }
+.agr-fs[disabled] .agr-grid-acts { display: none; }
+/* rows are display: contents, so a removed cell would shift every later row; keep the remove button's column, just hide it */
+.agr-fs[disabled] .agr-gr .iconbtn { visibility: hidden; }
 .agr-sec .card-head p { font-size: 13px; margin-top: 3px; }
 .agr-sec .card-body { padding-top: 16px; }
 .agr-rel { grid-template-columns: 150px minmax(0, 1fr) !important; }
@@ -267,9 +269,12 @@
 .agr-work.pv-open { display: grid; grid-template-columns: minmax(0, 1fr) minmax(320px, .62fr); gap: 20px; align-items: start; }
 .agr-live { display: none; position: sticky; top: 84px; grid-template-rows: auto minmax(0, 1fr); height: calc(100vh - 108px); min-height: 420px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
 .pv-open .agr-live { display: grid; }
-.agr-pvfab { position: fixed; right: 24px; bottom: 24px; z-index: 30; display: inline-flex; align-items: center; gap: 8px; height: 44px; padding: 0 18px; border: 0; border-radius: 22px;
+/* floats at the bottom of the window, centred on the content column (the window minus the sidebar) */
+.agr-pvfab { --agr-side: calc(var(--rail-open) + var(--gap) * 2); position: fixed; left: calc((100% + var(--agr-side)) / 2); bottom: 24px; transform: translateX(-50%); z-index: 30;
+  display: inline-flex; align-items: center; gap: 8px; height: 44px; padding: 0 20px; border: 0; border-radius: 22px; white-space: nowrap;
   background: var(--ink); color: var(--surface); font: 600 14px var(--font); box-shadow: 0 8px 24px -8px rgba(0, 0, 0, .45); cursor: pointer; }
 .agr-pvfab:hover { background: var(--ink-2); }
+body.side-collapsed .agr-pvfab { --agr-side: calc(var(--rail) + var(--gap) * 2); }
 .pv-open .agr-pvfab { display: none; }
 .agr-live-h { display: flex; align-items: center; gap: 10px; padding: 12px 14px; border-bottom: 1px solid var(--line); font-size: 13.5px; }
 .agr-live-h .btn { margin-left: auto; }
@@ -326,6 +331,7 @@
   .agr-live { position: fixed; left: 0; right: 0; bottom: 0; top: auto; z-index: 35; height: 52vh; min-height: 0; border-radius: 16px 16px 0 0; box-shadow: 0 -12px 32px -12px rgba(0, 0, 0, .35); }
 }
 @media (max-width: 900px) {
+  .agr-pvfab, body.side-collapsed .agr-pvfab { --agr-side: 0px; } /* the sidebar is off screen */
   /* the section list becomes a scrolling strip above the form */
   .agr-fillwrap, .agr-work.pv-open .agr-fillwrap { grid-template-columns: minmax(0, 1fr); gap: 14px; }
   .agr-toc { top: 64px; z-index: 5; max-height: none; display: flex; gap: 4px; padding: 6px; overflow-x: auto; overflow-y: hidden; }
@@ -348,7 +354,7 @@
   .agr-rel, .agr-c3 { grid-template-columns: 1fr !important; }
   .agr-ti { grid-template-columns: 28px 24px minmax(0, 1fr); }
   .agr-ti .tag { display: none; }
-  .agr-pvfab { right: 16px; bottom: 16px; }
+  .agr-pvfab { bottom: 16px; }
   .agr-rc-f { padding: 0; grid-template-columns: 1fr 1fr !important; }
   .agr-ui > * + * { margin-top: 22px; }
   .agr-steps { gap: 2px; padding: 4px; }

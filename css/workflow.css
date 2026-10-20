@@ -398,7 +398,8 @@ button.rcl:hover { outline: 2px solid var(--line-2); }
   .side-arrow .ico { width: 15px; height: 15px; stroke-width: 2.2; transition: transform .32s var(--ease); }
   .side-arrow:hover { color: var(--brand-ink); border-color: color-mix(in srgb, var(--brand) 45%, var(--line)); background: var(--brand-soft); }
   .side-arrow:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
-  body.side-collapsed .side-arrow { left: calc(var(--gap) + var(--rail) - 14px); }
+  /* the logo fills most of the collapsed rail, so the arrow sits further out to leave a clear gap beside it */
+  body.side-collapsed .side-arrow { left: calc(var(--gap) + var(--rail) - 8px); }
   body.side-collapsed .side-arrow .ico { transform: rotate(180deg); }
   /* keep the brand clear of the arrow */
   .sidebar .brand { padding-right: 18px; }
